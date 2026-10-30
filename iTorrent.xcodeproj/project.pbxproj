@@ -1866,7 +1866,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+			shellScript = "# The placeholder config Tools/prepare-build.sh writes names no Firebase project to upload to. (The\n# bundled copy: with user script sandboxing a phase reads only its declared inputs.)\nif /usr/libexec/PlistBuddy -c 'Print :PROJECT_ID' \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleService-Info.plist\" 2>/dev/null | grep -qx local-placeholder; then\n  echo \"Placeholder GoogleService-Info.plist: not uploading dSYMs\"\n  exit 0\nfi\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2150,7 +2150,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProgressWidget/ProgressWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D59DHVRS87;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProgressWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ProgressWidget;
@@ -2261,7 +2261,7 @@
 				CODE_SIGN_ENTITLEMENTS = iTorrent/Core/Assets/iTorrent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D59DHVRS87;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iTorrent/Core/Assets/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -2301,7 +2301,7 @@
 				CODE_SIGN_ENTITLEMENTS = ProgressWidget/ProgressWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D59DHVRS87;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProgressWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ProgressWidget;
@@ -2406,11 +2406,8 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = iTorrent/Core/Assets/iTorrent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D59DHVRS87;
-				"DEVELOPMENT_TEAM[sdk=xros*]" = D59DHVRS87;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iTorrent/Core/Assets/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -2432,8 +2429,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_ID)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "iTorrent Prod";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=xros*]" = "iTorrent2 Distrib";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator xros xrsimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -2451,10 +2446,8 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = ProgressWidget/ProgressWidgetExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D59DHVRS87;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ProgressWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ProgressWidget;
@@ -2468,7 +2461,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "$(APPLICATION_ID).ProgressWidget";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "iTorrent Widget Prod";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$inherited XCODE16";
@@ -2659,7 +2651,7 @@
 				CODE_SIGN_ENTITLEMENTS = iTorrent/Core/Assets/iTorrent.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D59DHVRS87;
+				DEVELOPMENT_TEAM = 5539XQQATJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iTorrent/Core/Assets/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;

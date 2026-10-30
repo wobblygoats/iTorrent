@@ -1,0 +1,37 @@
+# A merge to main that changes the iPhone/iPad app becomes a TestFlight build of
+# dev.wobblygoat.magictv, which every device signed in to TestFlight installs. The job is
+# release-kit's; the paths below are what the iTorrent scheme compiles (the app, its widget,
+# WatchCore, the submodules) plus the project and the release setup. The tvOS app is not part
+# of it. A pull request that changes the release setup archives as a dry run and uploads nothing.
+name: testflight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - iTorrent/**
+      - ProgressWidget/**
+      - Packages/**
+      - Submodules/**
+      - iTorrent.xcodeproj/**
+      - iTorrent.xcworkspace/**
+      - Makefile
+      - Tools/prepare-build.sh
+      - Tools/release-kit
+  pull_request:
+    paths:
+      - .github/workflows/testflight.yml
+      - iTorrent.xcodeproj/**
+      - Makefile
+      - Tools/prepare-build.sh
+      - Tools/release-kit
+
+jobs:
+  testflight:
+    uses: wobblygoats/release-kit/.github/workflows/testflight.yml@main
+    with:
+      runner: iTorrent
+      dry-run: ${{ github.event_name == 'pull_request' }}
+      # A cold libtorrent build adds a lot to the archive; later runs reuse build/.
+      timeout: 90
+    secrets: inherit

@@ -10,3 +10,6 @@
 [submodule "Submodules/SwiftVLC"]
 	path = Submodules/SwiftVLC
 	url = https://github.com/XITRIX/SwiftVLC.git
+[submodule "Tools/release-kit"]
+	path = Tools/release-kit
+	url = ../release-kit.git
